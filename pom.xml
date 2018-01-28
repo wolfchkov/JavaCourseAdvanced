@@ -1,40 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!--Версия модели POM'a-->
     <modelVersion>4.0.0</modelVersion>
     
-    <groupId>net.wolf.javacourseadv</groupId>
-    <artifactId>JavaCourseAdvance</artifactId>
+    <!--Проект-->
+    <groupId>net.wolf.jcadv</groupId>
+    <artifactId>java-cource-advance</artifactId>
     <version>0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
-    
+    <packaging>pom</packaging>
+       
+    <!--Общие параметры-->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+   
+   <!--Подмодули проекта-->
+    <modules>
+        <module>Lesson3</module>
+        <module>Lesson4</module>
+        <module>Lesson5</module>
+        <module>Lesson1</module>
+        <module>Lesson2</module>
+    <module>Lesson7</module>
+  </modules>
     
-    <dependencies>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>21.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-collections4</artifactId>
-            <version>4.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.goldmansachs</groupId>
-            <artifactId>gs-collections-api</artifactId>
-            <version>7.0.3</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.goldmansachs</groupId>
-            <artifactId>gs-collections</artifactId>
-            <version>7.0.3</version>
-        </dependency>
-
-    </dependencies>
 </project>
