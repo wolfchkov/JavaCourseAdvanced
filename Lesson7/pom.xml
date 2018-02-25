@@ -16,7 +16,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <mainClass>net.wolf.jcadv.lesson7.MainApp</mainClass>
+        <mainClass>net.wolf.jcadv.lesson7.phonebook.MainApp</mainClass>
     </properties>
 
     <organization>
@@ -58,7 +58,7 @@
                             <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <executable>${java.home}/../bin/javafxpackager</executable>
+                            <executable>${java.home}/../bin/javapackager</executable>
                             <arguments>
                                 <argument>-createjar</argument>
                                 <argument>-nocss2bin</argument>

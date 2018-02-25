@@ -9,6 +9,7 @@ package net.wolf.jcadv.lesson1.lambda;
  * Интерфейс с контрактом предиката для сотрудника
  * @author Andrey
  */
+@FunctionalInterface
 public interface CheckEmployee {
                 
         /**

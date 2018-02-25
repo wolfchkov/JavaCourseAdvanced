@@ -1,4 +1,4 @@
-package net.wolf.jcadv.lesson7;
+package net.wolf.jcadv.lesson7.phonebook;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -8,16 +8,18 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 
-public class MainApp extends Application {
+public class PhoneBookApplication extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/main.fxml"));
         
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
         
-        stage.setTitle("JavaFX and Maven");
+        stage.setMinHeight(640);
+        stage.setMinWidth(800);
+        stage.setTitle("Phone book 1.0");
         stage.setScene(scene);
         stage.show();
     }
