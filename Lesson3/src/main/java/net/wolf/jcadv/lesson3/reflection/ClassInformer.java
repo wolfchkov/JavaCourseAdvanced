@@ -6,6 +6,7 @@
 package net.wolf.jcadv.lesson3.reflection;
 
 import static java.lang.System.out;
+
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Type;
@@ -15,7 +16,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import net.wolf.jcadv.lesson3.ValueObject;
+import net.wolf.jcadv.lesson3.validation.ValueObject;
 
 /**
  * Класс который может нам показать много информации о любом другом классе.

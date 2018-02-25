@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package net.wolf.jcadv.lesson3;
+package net.wolf.jcadv.lesson3.validation;
 
 /**
  *

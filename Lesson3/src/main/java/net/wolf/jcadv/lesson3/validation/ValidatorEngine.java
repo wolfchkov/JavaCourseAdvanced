@@ -3,13 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package net.wolf.jcadv.lesson3;
+package net.wolf.jcadv.lesson3.validation;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.util.Objects;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 /**
