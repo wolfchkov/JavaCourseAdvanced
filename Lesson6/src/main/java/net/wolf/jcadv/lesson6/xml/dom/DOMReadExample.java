@@ -7,9 +7,13 @@ package net.wolf.jcadv.lesson6.xml.dom;
 
 
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import net.wolf.jcadv.lesson6.xml.Staff;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -34,7 +38,7 @@ public class DOMReadExample {
         
         
         //Парсим XML
-	Document doc = dBuilder.parse(DOMReadExample.class.getResourceAsStream("staff.xml"));
+	Document doc = dBuilder.parse(DOMReadExample.class.getResourceAsStream("../staff.xml"));
 
 	//не обязательно но рекомендуется 
 	//почитать - http://stackoverflow.com/questions/13786607/normalization-in-dom-parsing-with-java-how-does-it-work
@@ -47,25 +51,28 @@ public class DOMReadExample {
 
 	System.out.println("----------------------------");
 
-        //выводим в консоль
+        List<Staff> saffs = new ArrayList<>();
+        //Создаем объекты Staff
 	for (int temp = 0; temp < nList.getLength(); temp++) {
 
 		Node nNode = nList.item(temp);
 
-		System.out.println("\nТекущий элемент: " + nNode.getNodeName());
-
+                
 		if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-
+                        Staff staff = new Staff();                        
 			Element eElement = (Element) nNode;
 
-			System.out.println("id ставки: " + eElement.getAttribute("id"));
-			System.out.println("Имя: " + eElement.getElementsByTagName("firstname").item(0).getTextContent());
-			System.out.println("Фамилия: " + eElement.getElementsByTagName("lastname").item(0).getTextContent());
-			System.out.println("Ник: " + eElement.getElementsByTagName("nickname").item(0).getTextContent());
-			System.out.println("Ставка: " + eElement.getElementsByTagName("salary").item(0).getTextContent());
-
+                        staff.setId(Integer.parseInt(eElement.getAttribute("id")));
+                        staff.setFirstName(eElement.getElementsByTagName("firstname").item(0).getTextContent());
+                        staff.setLastName(eElement.getElementsByTagName("lastname").item(0).getTextContent());
+                        staff.setNick(eElement.getElementsByTagName("nickname").item(0).getTextContent());
+                        staff.setSalary(new BigDecimal(eElement.getElementsByTagName("salary").item(0).getTextContent()));
+                        
+                        saffs.add(staff);
 		}
 	}
+        
+        System.out.println(saffs);
     } catch (IOException | ParserConfigurationException | DOMException | SAXException e) {
 	e.printStackTrace();
     }

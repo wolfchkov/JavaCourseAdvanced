@@ -1,0 +1,21 @@
+[
+    {
+        "someId": 10,
+        "name": "Petr",
+        "lastName": "Petrov",
+        "nickName": "petya",
+        "salary": 154565
+    }, {
+        "someId": 10231,
+        "name": "Jim",
+        "lastName": "Kerry",
+        "nickName": "jkerry",
+        "salary": 20000
+    }, {
+        "someId": 10,
+        "name": "John",
+        "lastName": "Snow",
+        "nickName": "jsnow",
+        "salary": 100000
+    }
+]

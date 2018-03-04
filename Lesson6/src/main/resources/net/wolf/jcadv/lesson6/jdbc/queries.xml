@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <comment>Таблицы которые нужно создать во время запуска программы</comment>
+    <entry key="url.coloradosoftwaresummit">http://www.softwaresummit.com/</entry>
+</properties>
