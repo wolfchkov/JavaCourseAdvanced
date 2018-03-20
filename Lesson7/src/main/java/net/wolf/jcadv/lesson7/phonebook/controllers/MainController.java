@@ -35,9 +35,7 @@ public class MainController implements Initializable {
     }
     
     public void setObservablPhoneRecordList(ObservableList<PhoneRecord> phoneRecords) {
-        phoneBook.setItems(phoneRecords);
-     
-        records.
+        phoneBook.setItems(phoneRecords);     
     }
 }
 
