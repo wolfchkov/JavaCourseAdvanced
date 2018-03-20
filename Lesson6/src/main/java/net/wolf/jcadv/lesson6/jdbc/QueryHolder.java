@@ -41,13 +41,16 @@ public class QueryHolder {
     
     private Map<String, String> loadProperties(String resource) throws IOException {
         Properties properties = new Properties();
-        properties.loadFromXML(QueryHolder.class.getResourceAsStream("tables.xml"));
+        properties.loadFromXML(QueryHolder.class.getResourceAsStream(resource));
         return properties.entrySet()
                 .stream()
                 .collect(Collectors.toMap(e -> e.getKey().toString(), e -> e.getValue().toString()));
     }
  
     public String getQuery(String name) {
+        if (!queries.containsKey(name)) {
+            throw new IllegalArgumentException("SQL statement for name " + name + " not exists!");
+        }
         return queries.get(name);
     }
 }

@@ -5,34 +5,48 @@
  */
 package net.wolf.jcadv.lesson7.phonebook.model;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 /**
- *
+ * Модель данных в телефонном справочнике
  * @author Andrey
  */
 public class PhoneRecord {
     
-    private String surname;    
+    private StringProperty fullName;    
+        
+    private StringProperty phone;
     
-    private String name;
-    
-    private String patronymic;
+    private StringProperty operator;
 
-    public PhoneRecord(String surname, String name, String patronymic) {
-        this.surname = surname;
-        this.name = name;
-        this.patronymic = patronymic;
+    public PhoneRecord(String fullName, String phone, String operator) {
+        this.fullName = new SimpleStringProperty(fullName);
+        this.phone = new SimpleStringProperty(phone);
+        this.operator = new SimpleStringProperty(operator);
     }
 
-    public String getSurname() {
-        return surname;
+    public StringProperty getFullName() {
+        return fullName;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getPatronymic() {
-        return patronymic;
+    public void setFullName(StringProperty fullName) {
+        this.fullName = fullName;
     }
     
+    public StringProperty getPhone() {
+        return phone;
+    }
+
+    public void setPhone(StringProperty phone) {
+        this.phone = phone;
+    }
+
+    public StringProperty getOperator() {
+        return operator;
+    }
+
+    public void setOperator(StringProperty operator) {
+        this.operator = operator;
+    }
 }

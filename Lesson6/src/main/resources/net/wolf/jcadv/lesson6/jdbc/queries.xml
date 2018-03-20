@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-    <comment>Таблицы которые нужно создать во время запуска программы</comment>
-    <entry key="url.coloradosoftwaresummit">http://www.softwaresummit.com/</entry>
+    <comment>Запросы</comment>
+    <entry key="insert.client">
+        INSERT INTO CLIENTS(CLIENT_ID, FIRST_NAME, LAST_NAME, ADDRESS)
+            VALUES (?, ?, ?, ?)
+    </entry>
+    <entry key="select.client">
+        SELECT CLIENT_ID, FIRST_NAME, LAST_NAME, ADDRESS
+        FROM CLIENTS
+        WHERE CLIENT_ID = ?
+    </entry>
+    <entry key="update.client">
+        UPDATE CLIENTS
+            SET FIRST_NAME = ?,
+                LAST_NAME = ?,
+                ADDRESS = ?
+        WHERE CLIENT_ID = ?
+    </entry>
+    <entry key="delete.client">
+        DELETE FROM CLIENTS   
+        WHERE CLIENT_ID = ?
+    </entry>
+    <entry key="insert.phone">
+        INSERT INTO PHONES(CLIENT_ID, PHONE, IS_MAIN)
+        VALUES (?, ?, ?)
+    </entry>    
+    <entry key="select.phone">
+        SELECT CLIENT_ID, PHONE, IS_MAIN
+        FROM PHONES
+        WHERE CLIENT_ID = ?
+    </entry> 
+    <entry key="update.phone">
+        UPDATE PHONES
+            SET IS_MAIN = ?
+        WHERE CLIENT_ID = ?
+               AND PHONE = ?            
+    </entry>      
+    <entry key="delete.phone">
+        DELETE
+        FROM PHONES
+        WHERE CLIENT_ID = ?
+               AND PHONE = ?            
+    </entry>      
+    <entry key="delete.all.phone">
+        DELETE
+        FROM PHONES
+        WHERE CLIENT_ID = ?
+    </entry>      
 </properties>
