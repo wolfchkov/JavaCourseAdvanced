@@ -5,6 +5,7 @@
  */
 package net.wolf.jcadv.lesson7.phonebook.model;
 
+import java.util.Objects;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -14,39 +15,91 @@ import javafx.beans.property.StringProperty;
  */
 public class PhoneRecord {
     
-    private StringProperty fullName;    
+    private final StringProperty fullName;    
         
-    private StringProperty phone;
+    private final StringProperty phone;
     
-    private StringProperty operator;
+    private final StringProperty operator;
 
     public PhoneRecord(String fullName, String phone, String operator) {
         this.fullName = new SimpleStringProperty(fullName);
         this.phone = new SimpleStringProperty(phone);
         this.operator = new SimpleStringProperty(operator);
     }
+    
+    public PhoneRecord() {
+        this.fullName = new SimpleStringProperty();
+        this.phone = new SimpleStringProperty();
+        this.operator = new SimpleStringProperty();
+    }
 
-    public StringProperty getFullName() {
+    public StringProperty getFullNameProperty() {
         return fullName;
     }
+    
+    public String getFullName() {
+        return fullName.getValueSafe();
+    }
 
-    public void setFullName(StringProperty fullName) {
-        this.fullName = fullName;
+    public void setFullName(String fullName) {
+        this.fullName.set(fullName);
     }
     
-    public StringProperty getPhone() {
+    public StringProperty getPhoneProperty() {
         return phone;
     }
-
-    public void setPhone(StringProperty phone) {
-        this.phone = phone;
+    
+    public String getPhone() {
+        return phone.getValueSafe();
     }
 
-    public StringProperty getOperator() {
+    public void setPhone(String phone) {
+        this.phone.set(phone);
+    }
+
+    public StringProperty getOperatorProperty() {
         return operator;
     }
-
-    public void setOperator(StringProperty operator) {
-        this.operator = operator;
+    
+    public String getOperator() {
+        return operator.getValueSafe();
     }
+
+    public void setOperator(String operator) {
+        this.operator.set(operator);
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 23 * hash + Objects.hashCode(this.fullName);
+        hash = 23 * hash + Objects.hashCode(this.phone);
+        hash = 23 * hash + Objects.hashCode(this.operator);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final PhoneRecord other = (PhoneRecord) obj;
+        if (!Objects.equals(this.fullName, other.fullName)) {
+            return false;
+        }
+        if (!Objects.equals(this.phone, other.phone)) {
+            return false;
+        }
+        if (!Objects.equals(this.operator, other.operator)) {
+            return false;
+        }
+        return true;
+    }
+    
 }

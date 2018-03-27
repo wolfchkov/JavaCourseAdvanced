@@ -11,17 +11,17 @@
    <children>
       <HBox maxHeight="50.0" prefHeight="50.0">
          <children>
-            <Button id="bAdd" fx:id="addButton" mnemonicParsing="false" text="Добавить">
+            <Button id="bAdd" fx:id="addButton" mnemonicParsing="false" onAction="#handleAddPhoneRecord" text="Добавить">
                <HBox.margin>
                   <Insets bottom="15.0" left="30.0" right="30.0" top="15.0" />
                </HBox.margin>
             </Button>
-            <Button id="bModify" fx:id="modifyButton" mnemonicParsing="false" text="Изменить">
+            <Button id="bModify" fx:id="modifyButton" mnemonicParsing="false" onAction="#handleEditPhoneRecord" text="Изменить">
                <HBox.margin>
                   <Insets bottom="15.0" left="30.0" right="30.0" top="15.0" />
                </HBox.margin>
             </Button>
-            <Button id="bDelete" fx:id="delButton" mnemonicParsing="false" text="Удалить">
+            <Button id="bDelete" fx:id="delButton" mnemonicParsing="false" onAction="#handleDeletePhoneRecord" text="Удалить">
                <HBox.margin>
                   <Insets bottom="15.0" left="30.0" right="30.0" top="15.0" />
                </HBox.margin>
@@ -33,8 +33,8 @@
       </HBox>
       <AnchorPane maxHeight="40.0" prefHeight="40.0">
          <children>
-            <Button id="bFind" layoutX="549.0" mnemonicParsing="false" text="Поиск" AnchorPane.rightAnchor="10.0" />
-            <TextField layoutX="74.0" prefHeight="25.0" prefWidth="373.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="80.0" />
+            <TextField editable="false" layoutX="83.0" layoutY="2.0" prefHeight="25.0" prefWidth="373.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+            <Label layoutX="7.0" layoutY="14.0" prefHeight="26.0" prefWidth="198.0" text="Для поиска начните вводить текст:" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0" />
          </children>
          <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -59,7 +59,8 @@
       </AnchorPane>
       <AnchorPane maxHeight="35.0" prefHeight="35.0">
          <children>
-            <Label fx:id="records" layoutX="6.0" layoutY="6.0" maxHeight="30.0" prefHeight="30.0" text="Количество записей:" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+            <Label layoutY="2.0" prefHeight="25.0" prefWidth="120.0" text="Количество записей:" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+            <Label fx:id="records" layoutX="120.0" layoutY="3.0" maxHeight="30.0" prefHeight="25.0" prefWidth="51.0" text="0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="120.0" />
          </children>
          <VBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
