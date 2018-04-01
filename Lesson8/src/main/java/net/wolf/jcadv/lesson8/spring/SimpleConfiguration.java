@@ -6,6 +6,8 @@
 package net.wolf.jcadv.lesson8.spring;
 
 import net.wolf.jcadv.lesson8.spring.rand.RandomIntBeanPostProcessor;
+import net.wolf.jcadv.lesson8.spring.service.DefaultMessageSender;
+import net.wolf.jcadv.lesson8.spring.service.DefaultWelcomeService;
 import net.wolf.jcadv.lesson8.spring.service.MessageSender;
 import net.wolf.jcadv.lesson8.spring.service.WelcomeService;
 import org.springframework.context.annotation.Bean;
@@ -21,12 +23,12 @@ public class SimpleConfiguration {
     
     @Bean
     public MessageSender messageSender() {
-        return new MessageSender();
+        return new DefaultMessageSender();
     }
     
     @Bean
-    public WelcomeService welcomeService(MessageSender messageSender) {
-        return new WelcomeService(messageSender);
+    public WelcomeService welcomeService(DefaultMessageSender messageSender) {
+        return new DefaultWelcomeService(messageSender);
     }
     
     @Bean

@@ -6,6 +6,7 @@
 package net.wolf.jcadv.lesson8.spring.rand;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.concurrent.ThreadLocalRandom;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,12 +34,21 @@ public class RandomIntBeanPostProcessor implements BeanPostProcessor {
                         field.setAccessible(true);
                         RandomInt annotation = field.getAnnotation(RandomInt.class);
                         ReflectionUtils.setField(field, bean, ThreadLocalRandom.current().nextInt(annotation.min(), annotation.max()));
-                }, this::isMarkedRandomInt);
+                }, this::isFieldMarkedRandomInt);
+        ReflectionUtils.doWithMethods(bean.getClass(),
+                (method) -> {                        
+                        RandomInt annotation = method.getAnnotation(RandomInt.class);
+                        ReflectionUtils.invokeMethod(method, bean, ThreadLocalRandom.current().nextInt(annotation.min(), annotation.max()));
+                }, this::isMethodMarkedRandomInt);
         return bean;
     }
 
-    private boolean isMarkedRandomInt(Field field) {
+    private boolean isFieldMarkedRandomInt(Field field) {
         return field.isAnnotationPresent(RandomInt.class);
+    }
+    
+    private boolean isMethodMarkedRandomInt(Method method) {
+        return method.isAnnotationPresent(RandomInt.class);
     }
 
     @Override

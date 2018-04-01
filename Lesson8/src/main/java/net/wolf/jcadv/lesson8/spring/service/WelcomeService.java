@@ -9,16 +9,7 @@ package net.wolf.jcadv.lesson8.spring.service;
  *
  * @author Andrey
  */
-public class WelcomeService {
-    
-    private final MessageSender messageSender;
+public interface WelcomeService {
 
-    public WelcomeService(MessageSender messageSender) {
-        this.messageSender = messageSender;
-    }
-
-    public void welcome() {
-        System.out.println("Сервис говорит Привет и отправляет сообщение!");
-        messageSender.sendMessage("Привет!");
-    }
+    void welcome();
 }

@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package net.wolf.jcadv.lesson8.spring.service;
+package net.wolf.jcadv.lesson9.domain;
 
 /**
  *
  * @author Andrey
  */
-public interface MessageSender {
-
-    void sendMessage(String msg);
+public interface MessageRepository {
+        
+    String getMessage();    
 }
