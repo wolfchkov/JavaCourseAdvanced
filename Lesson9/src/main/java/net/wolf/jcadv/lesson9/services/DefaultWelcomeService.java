@@ -8,6 +8,7 @@ package net.wolf.jcadv.lesson9.services;
 import net.wolf.jcadv.lesson9.domain.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
@@ -20,18 +21,23 @@ public class DefaultWelcomeService implements WelcomeService{
     private final MessageSender messageSender;
     private final MessageRepository messageRepository;
 
+    private String message;
 
     @Autowired
-    public DefaultWelcomeService(@Qualifier("smsMessageSender") MessageSender messageSender, MessageRepository messageRepository) {
+    public DefaultWelcomeService(@Qualifier("smsMessageSender") MessageSender messageSender, 
+            MessageRepository messageRepository) {
         this.messageSender = messageSender;
         this.messageRepository = messageRepository;
     }
-    
-    
+
+    @Value("${lesson9.welcome.message}")
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
     @Override
     public void welcome() {
-        System.out.println("Сервис говорит Привет и отправляет сообщение!");
+        System.out.println(message);
         messageSender.sendMessage(messageRepository.getMessage());
     }
 }

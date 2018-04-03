@@ -9,8 +9,11 @@ import net.wolf.jcadv.lesson9.services.WelcomeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 /**
  *
@@ -18,7 +21,13 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ComponentScan("net.wolf.jcadv.lesson9")
+@PropertySource("classpath:settings.properties")
 public class SpringMain {
+
+    @Bean
+    public static PropertySourcesPlaceholderConfigurer propertyConfigInDev() {
+        return new PropertySourcesPlaceholderConfigurer();
+    }
 
     private static final Logger logger = LoggerFactory.getLogger(SpringMain.class);
 
@@ -29,10 +38,10 @@ public class SpringMain {
         context.getEnvironment().setActiveProfiles("prod");
         context.register(SpringMain.class);
         context.refresh();
-        
+
         WelcomeService welcomeService = context.getBean(WelcomeService.class);
-        
-        welcomeService.welcome();        
+
+        welcomeService.welcome();
         context.registerShutdownHook();
     }
 }
